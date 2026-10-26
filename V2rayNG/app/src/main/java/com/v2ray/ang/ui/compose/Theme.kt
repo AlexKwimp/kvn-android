@@ -32,7 +32,7 @@ private val LightColor = lightColorScheme(
     onPrimary = Color(0xFFFFFFFF), // White
     primaryContainer = Color(0xFFE0E0E0), // Light Gray
     onPrimaryContainer = Color(0xFF000000), // Black
-    secondary = Color(0xFFf97910), // Orange
+    secondary = Color(0xFF3FB950), // Orange
     onSecondary = Color(0xFFFFFFFF), // White
     secondaryContainer = Color(0xFFFFE8D6), // Pale Orange
     onSecondaryContainer = Color(0xFF2B1700), // Dark Brown
@@ -69,7 +69,7 @@ private val DarkColor = darkColorScheme(
     onPrimary = Color(0xFF303030), // Dark Gray
     primaryContainer = Color(0xFF474747), // Gray
     onPrimaryContainer = Color(0xFFE0E0E0), // Light Gray
-    secondary = Color(0xFFf97910), // Orange
+    secondary = Color(0xFF3FB950), // Orange
     onSecondary = Color(0xFF4E2600), // Dark Brown
     secondaryContainer = Color(0xFF6F3800), // Brown
     onSecondaryContainer = Color(0xFFFFE8D6), // Pale Orange
@@ -104,8 +104,8 @@ private val DarkColor = darkColorScheme(
 // Semantic Colors
 val colorPing = Color(0xFF009966) // Green
 val colorPingRed = Color(0xFFFF0099) // Pink Red
-val colorConfigType = Color(0xFFf97910) // Orange
-val colorFabActive = Color(0xFFf97910) // Orange
+val colorConfigType = Color(0xFF3FB950) // Orange
+val colorFabActive = Color(0xFF3FB950) // Orange
 val colorFabInactiveLight = Color(0xFF9C9C9C) // Gray
 val colorFabInactiveDark = Color(0xFF646464) // Dark Gray
 val dividerColorLight = Color(0xFFE0E0E0) // Light Gray
@@ -127,7 +127,7 @@ object ThemeManager {
     val themeMode: StateFlow<String> = _themeMode.asStateFlow()
 
     private val _dynamicColorEnabled = MutableStateFlow(
-        MmkvManager.decodeSettingsBool(AppConfig.PREF_DYNAMIC_COLOR, true)
+        MmkvManager.decodeSettingsBool(AppConfig.PREF_DYNAMIC_COLOR, false)
     )
     val dynamicColorEnabled: StateFlow<Boolean> = _dynamicColorEnabled.asStateFlow()
 
@@ -145,7 +145,7 @@ object ThemeManager {
         _themeMode.value =
             MmkvManager.decodeSettingsString(AppConfig.PREF_UI_MODE_NIGHT, "0") ?: "0"
         _dynamicColorEnabled.value =
-            MmkvManager.decodeSettingsBool(AppConfig.PREF_DYNAMIC_COLOR, true)
+            MmkvManager.decodeSettingsBool(AppConfig.PREF_DYNAMIC_COLOR, false)
     }
 }
 
