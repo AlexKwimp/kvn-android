@@ -70,10 +70,10 @@ jobs:
           chmod 755 gradlew
           ./gradlew assemblePlaystoreDebug
 
-      - name: Upload debug APKs
+      - name: Upload universal debug APK
         uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
-          name: KVN-android-debug
+          name: KVN-android-universal
           if-no-files-found: error
-          path: ${{ github.workspace }}/V2rayNG/app/build/outputs/apk/**/debug/**/*.apk
+          path: ${{ github.workspace }}/V2rayNG/app/build/outputs/apk/**/debug/**/*universal*.apk
