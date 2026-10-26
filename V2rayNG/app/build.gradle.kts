@@ -38,6 +38,18 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        // Фиксированный debug-ключ в репозитории, чтобы все сборки имели ОДНУ
+        // подпись и обновления ставились поверх без удаления. Debug-ключ не
+        // секретен (пароль android) — хранить его в репо безопасно.
+        getByName("debug") {
+            storeFile = rootProject.file("kvn-debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
